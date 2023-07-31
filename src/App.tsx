@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import NavBar from './components/NavBar/NavBar';
+import DrawerMenu from './components/DrawerMenu/DrawerMenu';
 
 const App = () => {
 
@@ -12,7 +13,7 @@ const App = () => {
 
   const [navItem, setNavItem] = useState("Dashboard");
 
-  const drawerWidth = 200;
+  const drawerWidth = 240;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -40,6 +41,14 @@ const App = () => {
         drawerWidth={drawerWidth}
         theme={theme}
 
+      />
+
+      <DrawerMenu
+        open={open}
+        handleDrawerClose={handleDrawerClose}
+        drawerWidth={drawerWidth}        
+        setNavItem={setNavItem}
+        theme={theme}
       />
 
     </Box>
