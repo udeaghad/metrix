@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import store  from './store';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import theme from './theme/theme';
+import { ThemeProvider } from '@mui/material/styles';
 
 
 const root = ReactDOM.createRoot(
@@ -10,8 +13,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <Router>
     <Provider store={store}>
-      <App />
+      <ThemeProvider  theme={theme}>
+        <App />
+      </ThemeProvider>
     </Provider>
+    </Router>
   </React.StrictMode>
 );

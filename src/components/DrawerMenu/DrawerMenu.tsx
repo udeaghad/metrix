@@ -16,8 +16,6 @@ import {
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -27,7 +25,6 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import myTheme from '../../theme/theme';
 
 
 interface DrawerMenuProps {
@@ -111,14 +108,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -147,14 +151,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -185,14 +196,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -220,14 +238,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -255,14 +280,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -294,14 +326,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
+                  border: "1px solid white",
+                  borderRadius: "5px",
+                  color: "white",
+                  margin: "0 0.2rem",
+                },
+                '&:focus': {
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.dark,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",

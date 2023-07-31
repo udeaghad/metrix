@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Routes, Route } from 'react-router-dom'; 
 
 import NavBar from './components/NavBar/NavBar';
 import DrawerMenu from './components/DrawerMenu/DrawerMenu';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const App = () => {
 
@@ -50,6 +52,10 @@ const App = () => {
         setNavItem={setNavItem}
         theme={theme}
       />
+
+      <Routes>
+        <Route path='/' element={ <Dashboard />} />
+      </Routes>
 
     </Box>
   );
