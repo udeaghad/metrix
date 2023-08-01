@@ -5,8 +5,8 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
+import { Doughnut, Bar } from 'react-chartjs-2';
 
 
 
@@ -15,12 +15,23 @@ import { useTheme } from '@mui/material/styles';
 import {DrawerHeader} from './Style';
 import ReportCard from '../../components/ReportCard/ReportCard';
 import MarketingChart from '../../components/MarketingChart/MarketingChart';
+import SummaryChart from '../../components/SummaryChart/SummaryChart';
 
 const Dashboard = () => {
   const theme = useTheme();
   const [reportRange, setReportRange] = useState("This Week");
+  const [category, setCategory] = useState("Sales");
+  const [dateRange, setDateRange] = useState("Last 7 days");
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setReportRange(event.target.value as string)
+  }
+
+  const handleSelectCategoryChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setCategory(event.target.value as string)
+  }
+
+  const handleDateRangeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setDateRange(event.target.value as string)
   }
 
   const data = {
@@ -74,7 +85,7 @@ const Dashboard = () => {
 
   }
 
-  ChartJS.register(ArcElement, Legend);
+  ChartJS.register(ArcElement, Legend, CategoryScale, LinearScale, BarElement);
 
   const chartData = {
     labels: ["Acquisition", "Purchase", "Retention"],
@@ -93,10 +104,44 @@ const Dashboard = () => {
           theme.palette.secondary.main,
         ],
         borderWidth: 1,
-        backdropColor: "#e0e0e0",        
+        backdropColor: "#e0e0e0",
+        innerRadius: 1, 
+        weight: 0.5,
+        spacing: 2     
       },
     ]
   }
+
+  const barChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Bar Chart',
+      },
+    },
+  };
+
+  const barData = {
+    labels: ["Sept 10", "Sept 11", "Sept 12", "Sept 13", "Sept 14", "Sept 15", "Sept 16"],
+    datasets: [
+      {
+        label: 'Sales',
+        data: [ 90, 40, 70, 20, 80, 50, 80],
+        backgroundColor: theme.palette.primary.main,
+        borderColor: theme.palette.primary.main,
+        borderWidth: 1,
+        barThickness: 5,
+        borderRadius: {topLeft: 5, topRight: 5},
+        maxBarThickness: 5,
+      },
+    ],
+  };
+  
+
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 2, backgroundColor: "#e0e0e0"}}>
       <DrawerHeader /> 
@@ -172,6 +217,18 @@ const Dashboard = () => {
         chartData={chartData}
         handleChange={handleChange}
         reportRange={reportRange}
+      />
+
+      <SummaryChart 
+        theme={theme}
+        handleSelectCategoryChange={handleSelectCategoryChange}
+        category={category}
+        handleDateRangeChange={handleDateRangeChange}
+        dateRange={dateRange}
+        Bar={Bar}
+        barData={barData}
+        barChartOptions={barChartOptions}
+      
       />
     </Box>
   )

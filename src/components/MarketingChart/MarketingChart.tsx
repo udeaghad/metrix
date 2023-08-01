@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-
 interface MarketingChartProps {
   Doughnut: any;
   chartData: any;
@@ -8,6 +7,7 @@ interface MarketingChartProps {
 }
 
 const MarketingChart = ({chartData, Doughnut, reportRange, handleChange}: MarketingChartProps) => {
+
   return (
     <Box sx={{backgroundColor: "white", border: "1px solid white", p: 1, borderRadius: "1rem", mb: 2 }}>
       <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", mb: 5}}>
@@ -33,7 +33,7 @@ const MarketingChart = ({chartData, Doughnut, reportRange, handleChange}: Market
 
       <Box sx={{width: "100%"}}>
         <Doughnut data={chartData} />
-      </Box>
+      </Box>     
 
     </Box>
   )
