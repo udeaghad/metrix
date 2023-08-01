@@ -398,7 +398,7 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
-                backgroundColor: "#f2ee9d", 
+                backgroundColor: theme.palette.secondary.variant, 
                 border: "1px solid white",
                 borderRadius: "1rem",
                 color: "black", 
