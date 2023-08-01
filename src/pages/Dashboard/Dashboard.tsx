@@ -5,11 +5,16 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
+
 
 import { useTheme } from '@mui/material/styles';
 
 import {DrawerHeader} from './Style';
 import ReportCard from '../../components/ReportCard/ReportCard';
+import MarketingChart from '../../components/MarketingChart/MarketingChart';
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -67,6 +72,30 @@ const Dashboard = () => {
       property1Value: "30"
     }
 
+  }
+
+  ChartJS.register(ArcElement, Legend);
+
+  const chartData = {
+    labels: ["Acquisition", "Purchase", "Retention"],
+    datasets: [
+      {
+        label: "Marketing",
+        data: [ 1250, 450, 900],
+        backgroundColor: [
+          theme.palette.primary.main,
+          theme.palette.primary.variant,
+          theme.palette.secondary.main,
+        ],
+        borderColor: [
+          theme.palette.primary.main,
+          theme.palette.primary.variant,
+          theme.palette.secondary.main,
+        ],
+        borderWidth: 1,
+        backdropColor: "#e0e0e0",        
+      },
+    ]
   }
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 2, backgroundColor: "#e0e0e0"}}>
@@ -136,6 +165,13 @@ const Dashboard = () => {
         data={data.orderData}
         titleColor="gray"
         
+      />
+
+      <MarketingChart
+        Doughnut={Doughnut}
+        chartData={chartData}
+        handleChange={handleChange}
+        reportRange={reportRange}
       />
     </Box>
   )
