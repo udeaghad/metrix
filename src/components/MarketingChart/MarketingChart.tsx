@@ -31,9 +31,13 @@ const MarketingChart = ({chartData, Doughnut, reportRange, handleChange}: Market
         </Box>
       </Box>
 
-      <Box sx={{width: "100%"}}>
-        <Doughnut data={chartData} />
-      </Box>     
+      <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Box sx={{width: "15rem"}}>
+          <Doughnut data={chartData} />
+        </Box>    
+
+      </Box>
+
 
     </Box>
   )

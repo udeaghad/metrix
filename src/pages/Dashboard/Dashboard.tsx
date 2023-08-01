@@ -104,39 +104,28 @@ const Dashboard = () => {
           theme.palette.secondary.main,
         ],
         borderWidth: 1,
-        backdropColor: "#e0e0e0",
-        innerRadius: 1, 
-        weight: 0.5,
-        spacing: 2     
+        backdropColor: "#e0e0e0",    
       },
     ]
   }
 
   const barChartOptions = {
     responsive: true,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Bar Chart',
-      },
-    },
   };
 
   const barData = {
     labels: ["Sept 10", "Sept 11", "Sept 12", "Sept 13", "Sept 14", "Sept 15", "Sept 16"],
     datasets: [
       {
-        label: 'Sales',
+        label: '',
         data: [ 90, 40, 70, 20, 80, 50, 80],
         backgroundColor: theme.palette.primary.main,
         borderColor: theme.palette.primary.main,
         borderWidth: 1,
-        barThickness: 5,
-        borderRadius: {topLeft: 5, topRight: 5},
-        maxBarThickness: 5,
+        barThickness: 7,
+        borderRadius: 5,
+        maxBarThickness: 7,
+        backdropColor: "#e0e0e0"
       },
     ],
   };

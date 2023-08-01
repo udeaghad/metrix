@@ -53,8 +53,8 @@ const SummaryChart = ({handleSelectCategoryChange, category, dateRange, handleDa
         </Box>
       </Box>
 
-      <Box sx={{width: "100%"}}>
-        <Bar data={barData} options={barChartOptions}/>
+      <Box sx={{width: "100%", overflowX:"scroll"}}>
+        <Bar data={barData} />
       </Box> 
     </Box>
   )
