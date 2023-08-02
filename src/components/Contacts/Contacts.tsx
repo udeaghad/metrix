@@ -89,9 +89,16 @@ const Contacts = ({contacts, setContactSearchTerm, theme}: ContactsProps) => {
               </Box>
 
               <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Typography variant="body2" sx={{color: "gray"}}>
-                  {contact.messages[contact.messages.length - 1].content.split("").slice(0, 32).join("") + "..."}
-                </Typography>
+
+                {contact.messages[contact.messages.length - 1].content.length > 32 ?
+                  <Typography variant="body2" sx={{color: "gray"}}>
+                    {contact.messages[contact.messages.length - 1].content.split("").slice(0, 32).join("") + "..."}
+                  </Typography>
+                  :
+                  <Typography variant="body2" sx={{color: "gray"}}>
+                    {contact.messages[contact.messages.length - 1].content}
+                  </Typography>
+                }
                 <Typography variant="body2" sx={{color: "gray"}}>
                   {contact.messages[contact.messages.length - 1].time}
                 </Typography>
