@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import ordersReducer from './features/orders/orders';
 
 const store = configureStore({
   reducer: {
-   
+   orders: ordersReducer,
   }
 });
 

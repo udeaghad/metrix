@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import DrawerMenu from './components/DrawerMenu/DrawerMenu';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Conversations from './pages/Conversations/Conversations';
 
 const App = () => {
 
@@ -55,6 +56,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={ <Dashboard />} />
+        <Route path='/Conversations' element={ <Conversations />} />
       </Routes>
 
     </Box>

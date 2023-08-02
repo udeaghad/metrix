@@ -7,18 +7,18 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Chart as ChartJS, ArcElement, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
-
-
-
 import { useTheme } from '@mui/material/styles';
+import { useAppSelector } from '../../Hooks/storeHooks';
 
 import {DrawerHeader} from './Style';
 import ReportCard from '../../components/ReportCard/ReportCard';
 import MarketingChart from '../../components/MarketingChart/MarketingChart';
 import SummaryChart from '../../components/SummaryChart/SummaryChart';
+import RecentOrders from '../../components/RecentOrders/RecentOrders';
 
 const Dashboard = () => {
   const theme = useTheme();
+  const {orders} = useAppSelector(state => state.orders);
   const [reportRange, setReportRange] = useState("This Week");
   const [category, setCategory] = useState("Sales");
   const [dateRange, setDateRange] = useState("Last 7 days");
@@ -218,6 +218,11 @@ const Dashboard = () => {
         barData={barData}
         barChartOptions={barChartOptions}
       
+      />
+
+      <RecentOrders 
+        theme={theme}
+        orders={orders}
       />
     </Box>
   )
