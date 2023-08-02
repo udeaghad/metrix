@@ -185,7 +185,7 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
               </ListItemIcon>
               
               <ListItemText primary="Orders" sx={{ opacity: open ? 1 : 0 }} />
-              <Avatar sx={{ bgcolor: "#deb841", color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>3</Avatar>
+              <Avatar sx={{ bgcolor: theme.palette.secondary.variant, color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>3</Avatar>
               
             </ListItemButton>
           </ListItem>

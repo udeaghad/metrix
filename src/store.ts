@@ -5,7 +5,7 @@ import contactsReducer from './features/contacts/contacts';
 const store = configureStore({
   reducer: {
    orders: ordersReducer,
-   contact: contactsReducer,
+   contacts: contactsReducer,
   }
 });
 
