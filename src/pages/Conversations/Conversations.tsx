@@ -1,5 +1,4 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import {DrawerHeader} from './Style';
 
 const Conversations = () => {
@@ -10,8 +9,8 @@ const Conversations = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Conversations with Customers
       </Typography>
-    <Box>
+    </Box>
   )
 }
 
-export default Conversations
+export default Conversations;
