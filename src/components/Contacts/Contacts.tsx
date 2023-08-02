@@ -1,4 +1,4 @@
-import { Box, Typography, Avatar } from "@mui/material";
+import { Box, Typography, Avatar, Drawer } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 interface Contact {
@@ -26,9 +26,10 @@ interface ContactsProps {
   contacts: Contact["contacts"];
   setContactSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   theme: Theme;
+  setChatContact: React.Dispatch<React.SetStateAction<Contact["contacts"][0]>>
 }
 
-const Contacts = ({contacts, setContactSearchTerm, theme}: ContactsProps) => {
+const Contacts = ({contacts, setContactSearchTerm, theme, setChatContact}: ContactsProps) => {
   return (
     <Box sx={{backgroundColor: "white", border: "1px solid white", p: 1, borderRadius: "1rem", mb: 2 }}>
       <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
@@ -63,6 +64,7 @@ const Contacts = ({contacts, setContactSearchTerm, theme}: ContactsProps) => {
                 backgroundColor: "#eceff1", cursor: "pointer", borderRight: `2px solid ${theme.palette.primary.main}`
               } 
             }}
+            onClick={() => setChatContact(contact)}
           >
             <img src={contact.image} alt={contact.name} style={{width: "1rem", border: "1px solid inherit", borderRadius: "10px"}}/>
 

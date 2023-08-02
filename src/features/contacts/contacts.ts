@@ -120,7 +120,7 @@ interface Contact {
                   id: action.payload.message.id, 
                   status: "sent", 
                   time: action.payload.message.time, 
-                  content: action.payload.message, 
+                  content: action.payload.message.content, 
                   receiver: "Customer care", 
                   sender: "Me", 
                   msgRead: false,
