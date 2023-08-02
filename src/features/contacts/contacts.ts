@@ -112,18 +112,21 @@ interface Contact {
       sendMessage: (state, action: PayloadAction<any>) => {
         state.contacts.map((contact) => {
           if (contact.id === action.payload.id) {
-            return [
-              ...contact.messages, 
-              {
-                id: action.payload.message.id, 
-                status: "received", 
-                time: action.payload.message.time, 
-                content: action.payload.message, 
-                receiver: "Me", 
-                sender: "Customer care", 
-                msgRead: false,
-              }
-            ]
+            return {
+              ...contact, 
+              messages: [
+                ...contact.messages, 
+                {
+                  id: action.payload.message.id, 
+                  status: "sent", 
+                  time: action.payload.message.time, 
+                  content: action.payload.message, 
+                  receiver: "Customer care", 
+                  sender: "Me", 
+                  msgRead: false,
+                }
+              ]
+            }
           }
         });
       }
