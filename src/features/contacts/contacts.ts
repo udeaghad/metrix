@@ -133,6 +133,8 @@ interface Contact {
     }
   });
 
+  export const { sendMessage } = contactsSlice.actions;
+
   export default contactsSlice.reducer;
 
 
