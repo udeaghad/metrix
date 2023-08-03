@@ -49,9 +49,11 @@ interface ChatProps {
   orders: Order["orders"][0];
   handleSendMessage: () => void;
   handleMessageInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  messageInput: string;
+  chatMessage: any[]
 }
 
-const Chat = ({theme, chatContact, orders, handleSendMessage, handleMessageInput}: ChatProps) => {
+const Chat = ({theme, chatContact, orders, handleSendMessage, handleMessageInput, messageInput, chatMessage}: ChatProps) => {
   return (
     <Box sx={{backgroundColor: "white", border: "1px solid white", p: 1, borderRadius: "1rem", mb: 2 }}>
       <Box sx={{display: "flex", justifyContent: "flex-start", alignItems: "center", gap: 1, width: "100%", mb: 1}}>
@@ -152,7 +154,7 @@ const Chat = ({theme, chatContact, orders, handleSendMessage, handleMessageInput
         </Box>
 
         <Box sx={{width: "100%"}}>
-          {chatContact.messages.map((message) => (
+          {chatMessage.map((message) => (
             <Box 
               key={message.id}
               sx={{                
@@ -215,6 +217,7 @@ const Chat = ({theme, chatContact, orders, handleSendMessage, handleMessageInput
             type="text" 
             placeholder="Your message" 
             onChange={handleMessageInput}
+            value={messageInput}
             style={{height: "80%", border: "none", outline: "none", fontSize: "1rem", color: "black", width: "80%"}}
             />
 

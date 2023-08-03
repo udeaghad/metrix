@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import {DrawerHeader} from './Style';
+import {
+  DrawerHeader,
+  StyledResponsiveConversation,
+  StyledResponsiveContactCard,
+  StyledResponsiveChatBox
+} from './Style';
 import { useAppSelector, useAppDispatch } from '../../Hooks/storeHooks';
 import { sendMessage } from '../../features/contacts/contacts';
 import Contacts from '../../components/Contacts/Contacts';
@@ -22,19 +27,31 @@ const Conversations = () => {
 
   const [chatContact, setChatContact] = useState(contacts[0]);
 
+  const [chatMessage, setChatMessage] = useState<any[]>([]);
+
+  useEffect(() => {    
+    if (!chatContact) return;
+    const chat = contacts.find(contact => contact.id === chatContact.id);
+    if (!chat) return;
+    setChatMessage(chat.messages);    
+  }, [chatContact, contacts] )
+
   const [messageInput, setMessageInput] = useState("")
 
   const handleMessageInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
+    
     setMessageInput(e.target.value);
   }
 
-  const handleSendMessage = () => {   
-    if (messageInput.length) {
-      console.log(messageInput)
-      dispatch(sendMessage({id: chatContact.id, message: {id: ulid(), content: messageInput, time: new Date().toLocaleTimeString()}}))
-      setMessageInput("");
+  const handleSendMessage = () => { 
+    if (!messageInput) return;  
+    const message = {
+     id: ulid(),
+     content: messageInput,
+     time: "2.00 pm",
     }
+    dispatch(sendMessage({id: chatContact.id, message}))  
+    setMessageInput("")  
   }
 
   return (
@@ -45,21 +62,30 @@ const Conversations = () => {
         Conversations with Customers
       </Typography>
 
+      <StyledResponsiveConversation>
 
-      <Contacts 
-        contacts={contactSearchResults} 
-        setContactSearchTerm={setContactSearchTerm}
-        theme={theme}
-        setChatContact={setChatContact}
-      />
+      <StyledResponsiveContactCard>
+        <Contacts 
+          contacts={contactSearchResults} 
+          setContactSearchTerm={setContactSearchTerm}
+          theme={theme}
+          setChatContact={setChatContact}
+        />
+      </StyledResponsiveContactCard>
 
-      <Chat
-        theme={theme}
-        chatContact={chatContact}
-        orders={orders[0]}
-        handleMessageInput={handleMessageInput}
-        handleSendMessage={handleSendMessage}
-      />
+      <StyledResponsiveChatBox>
+        <Chat
+          theme={theme}
+          chatContact={chatContact}
+          orders={orders[0]}
+          handleMessageInput={handleMessageInput}
+          handleSendMessage={handleSendMessage}
+          messageInput={messageInput}
+          chatMessage={chatMessage}
+        />
+      </StyledResponsiveChatBox>
+
+      </StyledResponsiveConversation>
     </Box>
 
 

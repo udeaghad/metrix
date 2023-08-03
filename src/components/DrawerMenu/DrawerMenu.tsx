@@ -55,7 +55,7 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
     }),
     overflowX: 'hidden',
     width: `calc(${theme.spacing(7)} + 1px)`,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('tablet')]: {
       width: `calc(${theme.spacing(8)} + 1px)`,
     },
   });

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { Box } from '@mui/system'
 import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -8,23 +8,43 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Chart as ChartJS, ArcElement, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { useTheme } from '@mui/material/styles';
-import { useAppSelector } from '../../Hooks/storeHooks';
+import { useAppSelector, useAppDispatch } from '../../Hooks/storeHooks';
+import contactApi from  '../../api/contactAPI.json';
 
-import {DrawerHeader} from './Style';
+import {
+  DrawerHeader, 
+  StyledResponsiveDashboard,
+  StyledResponsiveSalesCard,
+  StyledResponsiveCustomerCard,
+  StyledResponsiveMarketingCard,
+  StyledResponsiveProductCard,
+  StyledResponsiveAbandonedCard,
+  StyledResponsiveSummaryCard,
+  StyledResponsiveOrderCard,
+  StyledResponsiveRecentOrderCard
+} from './Style';
 import ReportCard from '../../components/ReportCard/ReportCard';
 import MarketingChart from '../../components/MarketingChart/MarketingChart';
 import SummaryChart from '../../components/SummaryChart/SummaryChart';
 import RecentOrders from '../../components/RecentOrders/RecentOrders';
+import { addContacts } from '../../features/contacts/contacts';
+
 
 const Dashboard = () => {
   const theme = useTheme();
+  const dispatch = useAppDispatch();
   const {orders} = useAppSelector(state => state.orders);
   const [reportRange, setReportRange] = useState("This Week");
   const [category, setCategory] = useState("Sales");
   const [dateRange, setDateRange] = useState("Last 7 days");
+
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setReportRange(event.target.value as string)
   }
+
+  useEffect(() => {
+    dispatch(addContacts(contactApi.data))
+  }, [dispatch])
 
   const handleSelectCategoryChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setCategory(event.target.value as string)
@@ -134,96 +154,120 @@ const Dashboard = () => {
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 2, backgroundColor: "#e0e0e0"}}>
       <DrawerHeader /> 
-      <ReportCard 
-        theme={theme}
-        Icon={PieChartOutlineOutlinedIcon} 
-        iconColor={theme.palette.primary.main}
-        iconBgColor={theme.palette.primary.variant} 
-        cardBgColor="white" 
-        reportRange={reportRange}
-        handleChange={handleChange} 
-        showRangeSelector={true} 
-        data={data.salesData}
-        titleColor="gray"
-        
-      />
-      <ReportCard 
-        theme={theme}
-        Icon={PeopleAltOutlinedIcon} 
-        iconColor={theme.palette.primary.main}
-        iconBgColor={theme.palette.secondary.variant} 
-        cardBgColor="white" 
-        reportRange={reportRange}
-        handleChange={handleChange} 
-        showRangeSelector={true} 
-        data={data.customerData}
-        titleColor="gray"
-        
-      />
-      <ReportCard 
-        theme={theme}
-        Icon={Inventory2OutlinedIcon} 
-        iconColor={theme.palette.primary.main}
-        iconBgColor={theme.palette.primary.variant} 
-        cardBgColor={theme.palette.primary.main}
-        reportRange={reportRange}
-        handleChange={handleChange} 
-        showRangeSelector={false} 
-        data={data.productData}
-        titleColor="white"
-        
-      />
+      <StyledResponsiveDashboard>
+        <StyledResponsiveSalesCard>
+          <ReportCard 
+            theme={theme}
+            Icon={PieChartOutlineOutlinedIcon} 
+            iconColor={theme.palette.primary.main}
+            iconBgColor={theme.palette.primary.variant} 
+            cardBgColor="white" 
+            reportRange={reportRange}
+            handleChange={handleChange} 
+            showRangeSelector={true} 
+            data={data.salesData}
+            titleColor="gray"
+            
+          />
+        </StyledResponsiveSalesCard>
 
-      <ReportCard 
-        theme={theme}
-        Icon={ShoppingCartOutlinedIcon} 
-        iconColor={theme.palette.primary.main}
-        iconBgColor={theme.palette.secondary.variant} 
-        cardBgColor="white" 
-        reportRange={reportRange}
-        handleChange={handleChange} 
-        showRangeSelector={true} 
-        data={data.abandonedCartData}
-        titleColor="red"
-        
-      />
-      <ReportCard 
-        theme={theme}
-        Icon={ShoppingBagOutlinedIcon} 
-        iconColor={theme.palette.primary.main}
-        iconBgColor={theme.palette.secondary.variant} 
-        cardBgColor="white" 
-        reportRange={reportRange}
-        handleChange={handleChange} 
-        showRangeSelector={true} 
-        data={data.orderData}
-        titleColor="gray"
-        
-      />
+        <StyledResponsiveCustomerCard>
+          <ReportCard 
+            theme={theme}
+            Icon={PeopleAltOutlinedIcon} 
+            iconColor={theme.palette.primary.main}
+            iconBgColor={theme.palette.secondary.variant} 
+            cardBgColor="white" 
+            reportRange={reportRange}
+            handleChange={handleChange} 
+            showRangeSelector={true} 
+            data={data.customerData}
+            titleColor="gray"
+            
+          />
+        </StyledResponsiveCustomerCard>
 
-      <MarketingChart
-        Doughnut={Doughnut}
-        chartData={chartData}
-        handleChange={handleChange}
-        reportRange={reportRange}
-      />
+        <StyledResponsiveProductCard>
+          <ReportCard 
+            theme={theme}
+            Icon={Inventory2OutlinedIcon} 
+            iconColor={theme.palette.primary.main}
+            iconBgColor={theme.palette.primary.variant} 
+            cardBgColor={theme.palette.primary.main}
+            reportRange={reportRange}
+            handleChange={handleChange} 
+            showRangeSelector={false} 
+            data={data.productData}
+            titleColor="white"
+            
+          />
+        </StyledResponsiveProductCard>
 
-      <SummaryChart 
-        theme={theme}
-        handleSelectCategoryChange={handleSelectCategoryChange}
-        category={category}
-        handleDateRangeChange={handleDateRangeChange}
-        dateRange={dateRange}
-        Bar={Bar}
-        barData={barData}
-        barChartOptions={barChartOptions}
-      
-      />
+        <StyledResponsiveAbandonedCard>
+          <ReportCard 
+            theme={theme}
+            Icon={ShoppingCartOutlinedIcon} 
+            iconColor={theme.palette.primary.main}
+            iconBgColor={theme.palette.secondary.variant} 
+            cardBgColor="white" 
+            reportRange={reportRange}
+            handleChange={handleChange} 
+            showRangeSelector={true} 
+            data={data.abandonedCartData}
+            titleColor="red"
+            
+          />
+        </StyledResponsiveAbandonedCard>
 
-      <RecentOrders 
-        theme={theme}
-        orders={orders}
-      />
+        <StyledResponsiveOrderCard>
+          <ReportCard 
+            theme={theme}
+            Icon={ShoppingBagOutlinedIcon} 
+            iconColor={theme.palette.primary.main}
+            iconBgColor={theme.palette.secondary.variant} 
+            cardBgColor="white" 
+            reportRange={reportRange}
+            handleChange={handleChange} 
+            showRangeSelector={true} 
+            data={data.orderData}
+            titleColor="gray"
+            
+          />
+        </StyledResponsiveOrderCard>
+  
+
+        <StyledResponsiveMarketingCard>
+          <MarketingChart
+            Doughnut={Doughnut}
+            chartData={chartData}
+            handleChange={handleChange}
+            reportRange={reportRange}
+          />
+        </StyledResponsiveMarketingCard>
+
+        <StyledResponsiveSummaryCard>
+          <SummaryChart 
+            theme={theme}
+            handleSelectCategoryChange={handleSelectCategoryChange}
+            category={category}
+            handleDateRangeChange={handleDateRangeChange}
+            dateRange={dateRange}
+            Bar={Bar}
+            barData={barData}
+            barChartOptions={barChartOptions}
+          
+          />
+        </StyledResponsiveSummaryCard>
+
+        <StyledResponsiveRecentOrderCard>
+          <RecentOrders 
+            theme={theme}
+            orders={orders}
+          />
+        </StyledResponsiveRecentOrderCard>
+  
+  
+      </StyledResponsiveDashboard>
     </Box>
   )
 }

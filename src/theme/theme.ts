@@ -14,6 +14,18 @@ declare module '@mui/material/styles' {
     variant: string;
     variant2: string
   }
+
+  interface BreakpointOverrides {
+    xs: false; // removes the `xs` breakpoint
+    sm: false;
+    md: false;
+    lg: false;
+    xl: false;
+    mobile: true; // adds the `mobile` breakpoint
+    tablet: true;
+    laptop: true;
+    desktop: true;
+  }
 }
 
 const theme = createTheme({
@@ -28,7 +40,16 @@ const theme = createTheme({
       variant: '#f2ee9d',
     },
     
-  }
+  },
+
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 640,
+      laptop: 1024,
+      desktop: 1200,
+    },
+  },
 })
 
 export default theme;

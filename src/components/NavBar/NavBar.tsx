@@ -8,7 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 
-import { StyledNavItem } from './Style';
+import { StyledNavItem, StyledMobileNavItem } from './Style';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -58,7 +58,7 @@ const NavBar = ({handleChange, shop, open, navItem, handleDrawerOpen, drawerWidt
           {/* <MenuIcon /> */}
           <img src="images/metrix-logo.png" alt="logo" style={{width: '3rem'}} />
         </IconButton>
-        <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+        <StyledMobileNavItem>
           <StyledNavItem>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: "black" }}>
               {navItem}
@@ -92,7 +92,7 @@ const NavBar = ({handleChange, shop, open, navItem, handleDrawerOpen, drawerWidt
               />
             </Box>
           </Box>
-        </Box>
+        </StyledMobileNavItem>
       </Toolbar>
     </AppBar>
   )
