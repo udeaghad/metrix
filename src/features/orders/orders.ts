@@ -16,8 +16,8 @@ interface Order {
 
 const initialState: Order = {
   orders: [
-    { id: 1, name: "Iphone 13", price: "N730,000.00 x 1", status: "Pending", date: "12 Sept 2022", image: "images/black-phone.png", quantity: 1,},
-    { id: 2, name: "Iphone 13", price: "N730,000.00 x 1", status: "Completed", date: "12 Sept 2022", image: "images/gold-phone.png", quantity: 1,},
+    { id: 1, name: "iphone 13", price: "N730,000.00", status: "Pending", date: "12 Sept 2022", image: "images/black-phone.png", quantity: 1,},
+    { id: 2, name: "iphone 13", price: "N730,000.00", status: "Completed", date: "12 Sept 2022", image: "images/gold-phone.png", quantity: 1,},
   ],
 }
 

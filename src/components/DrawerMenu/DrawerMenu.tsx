@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
+import {NavLink} from 'react-router-dom';
 import {
   List, 
   Box, 
@@ -102,46 +103,49 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
 
         <List sx={{mb: "10rem"}}>
           <ListItem disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-                '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                },
-                '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                },
-                '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                }
-              }}
-              onClick={() => setNavItem("Dashboard")}
-            >
-              <ListItemIcon
+            <NavLink to="/" style={{ textDecoration: 'none', color: "black" }}>
+
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 2 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                  '&:hover': {  
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  },
+                  '&:focus': {
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  },
+                  '&:active': {
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  }
                 }}
+                onClick={() => setNavItem("Dashboard")}
               >
-                <DashboardOutlinedIcon /> 
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 2 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <DashboardOutlinedIcon /> 
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </NavLink>
           </ListItem>
 
           <ListItem disablePadding sx={{ display: 'block' }}>
@@ -151,21 +155,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -185,7 +189,7 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
               </ListItemIcon>
               
               <ListItemText primary="Orders" sx={{ opacity: open ? 1 : 0 }} />
-              <Avatar sx={{ bgcolor: theme.palette.secondary.variant, color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>3</Avatar>
+              <Avatar sx={{ bgcolor: theme.palette.secondary.main, color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>3</Avatar>
               
             </ListItemButton>
           </ListItem>
@@ -196,21 +200,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -238,21 +242,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
@@ -274,49 +278,52 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-                '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                },
-                '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                },
-                '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  color: "white",
-                  margin: "0 0.2rem",
-                },
-              }}
-              onClick={() => setNavItem("Conversations")}
-            >
-              <ListItemIcon
+            <NavLink to="/conversations" style={{ textDecoration: 'none', color: "black" }}>
+
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 2 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                  '&:hover': {  
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  },
+                  '&:focus': {
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  },
+                  '&:active': {
+                    backgroundColor: theme.palette.primary.main,
+                    border: "1px solid white",
+                    borderRadius: "5px",
+                    color: "white",
+                    margin: "0 0.2rem",
+                  },
                 }}
+                onClick={() => setNavItem("Conversations")}
               >
-                <TextsmsOutlinedIcon /> 
-              </ListItemIcon>
-              
-              <ListItemText primary="Conversations" sx={{ opacity: open ? 1 : 0 }} />
-              <Avatar sx={{ bgcolor: "#deb841", color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>16</Avatar>
-              
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 2 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <TextsmsOutlinedIcon /> 
+                </ListItemIcon>
+                
+                <ListItemText primary="Conversations" sx={{ opacity: open ? 1 : 0 }} />
+                <Avatar sx={{ bgcolor: "#deb841", color:"black", fontSize: "0.8rem", width: "1.2rem", height: "1.2rem"}}>16</Avatar>
+                
+              </ListItemButton>
+            </NavLink>
           </ListItem>
 
           <ListItem disablePadding sx={{ display: 'block' }}>
@@ -326,21 +333,21 @@ const DrawerMenu = ({open, handleDrawerClose, theme, setNavItem, drawerWidth}: D
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 '&:hover': {  
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:focus': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",
                   margin: "0 0.2rem",
                 },
                 '&:active': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.main,
                   border: "1px solid white",
                   borderRadius: "5px",
                   color: "white",

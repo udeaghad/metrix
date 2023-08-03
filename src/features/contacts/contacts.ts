@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { constants } from 'buffer';
+
 
 interface Contact {
   contacts: {
@@ -27,7 +27,7 @@ interface Contact {
       { 
         id: 1, 
         name: "Janet Doe", 
-        image: "images/black-phone.png", 
+        image: "https://material-ui.com/static/images/avatar/1.jpg", 
         online: true,
         unReadMsgCount: 1, 
         readMsgCount: 1,
@@ -48,18 +48,20 @@ interface Contact {
             sender: "Customer care",
             msgRead: true,
           },
-          { id: 2, 
+  
+          { id: 3, 
             status: "received", 
-            time: "01:00 pm", 
-            content: "Hello Janet, thank you for reaching out", 
-            receiver: "Me", 
-            sender: "Customer care", 
+            time: "01:02 pm", 
+            content: "What do you need to know?", 
+            receiver: "Customer care", 
+            sender: "Me", 
             msgRead: true,
           },
-          { id: 3, 
+               
+          { id: 4, 
             status: "sent", 
-            time: "01:02 9m", 
-            content: "What do you need to know?", 
+            time: "01:02 pm", 
+            content: "I want to know if the price is negotiable, I need about 2 units", 
             receiver: "Customer care", 
             sender: "Me", 
             msgRead: true,
@@ -67,9 +69,9 @@ interface Contact {
         ]        
       },
       {
-        id: 1, 
+        id: 2, 
         name: "Janet Adebayo", 
-        image: "images/black-phone.png", 
+        image: "https://material-ui.com/static/images/avatar/1.jpg", 
         online: true, 
         unReadMsgCount: 1, 
         readMsgCount: 0,
@@ -85,11 +87,29 @@ interface Contact {
         ] 
       },
       {
-        id: 1, 
+        id: 3, 
         name: "Kunle Adekunle", 
-        image: "images/black-phone.png", 
+        image: "https://material-ui.com/static/images/avatar/1.jpg", 
         online: false, 
         unReadMsgCount: 0, 
+        readMsgCount: 0,
+        messages: [
+          { id: 1, 
+            status: "sent", 
+            time: "12:55 am", 
+            content: "Hello, I want to make enquiries about your product", 
+            receiver: "Customer care", 
+            sender: "Me",             
+            msgRead: false, 
+          },
+        ] 
+      },
+      {
+        id: 4, 
+        name: "George Afolabi", 
+        image: "https://material-ui.com/static/images/avatar/1.jpg", 
+        online: true, 
+        unReadMsgCount: 4, 
         readMsgCount: 0,
         messages: [
           { id: 1, 
@@ -109,8 +129,9 @@ interface Contact {
     name: 'contacts',
     initialState,
     reducers: {
-      sendMessage: (state, action: PayloadAction<any>) => {
-        state.contacts.map((contact) => {
+      sendMessage: ((state, action: PayloadAction<any>) => ({
+         ...state,
+         contact: state.contacts.map((contact) => {
           if (contact.id === action.payload.id) {
             return {
               ...contact, 
@@ -128,10 +149,12 @@ interface Contact {
               ]
             }
           }
-        });
-      }
+          return contact;
+        })
+      }))
     }
   });
+  
 
   export const { sendMessage } = contactsSlice.actions;
 

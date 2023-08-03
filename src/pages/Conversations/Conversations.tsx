@@ -25,11 +25,13 @@ const Conversations = () => {
   const [messageInput, setMessageInput] = useState("")
 
   const handleMessageInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value)
     setMessageInput(e.target.value);
   }
 
   const handleSendMessage = () => {   
     if (messageInput.length) {
+      console.log(messageInput)
       dispatch(sendMessage({id: chatContact.id, message: {id: ulid(), content: messageInput, time: new Date().toLocaleTimeString()}}))
       setMessageInput("");
     }
@@ -39,7 +41,7 @@ const Conversations = () => {
     <Box component="main" sx={{ flexGrow: 1, p: 2, backgroundColor: "#e0e0e0"}}>
       <DrawerHeader /> 
 
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="subtitle1" gutterBottom>
         Conversations with Customers
       </Typography>
 

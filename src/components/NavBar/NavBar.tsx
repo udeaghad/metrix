@@ -47,7 +47,7 @@ const NavBar = ({handleChange, shop, open, navItem, handleDrawerOpen, drawerWidt
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={handleDrawerOpen}
+          onMouseEnter={handleDrawerOpen}
           edge="start"
           sx={{
             marginRight: 2,
