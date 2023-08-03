@@ -17,19 +17,14 @@ export const StyledResponsiveDashboard = styled('div')(({ theme }) => ({
   gap: 10,
   [theme.breakpoints.up('tablet')]: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    columnGap: 15,
-    rowGap: 0,
-    gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-    gap: 0,
+    gridTemplateColumns: 'auto auto',
+    gridTemplateRows: 'auto auto auto auto auto auto auto auto',
   },
   [theme.breakpoints.up('laptop')]: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr 50px',
+    gridTemplateColumns: 'auto auto auto 50px',
     columnGap: 15,
-    rowGap: 0,
-    gridTemplateRows: '1fr 1fr 1fr 1fr 1fr',
-    gap: 0,
+    gridTemplateRows: 'auto auto auto auto auto',
   }
 }));
 
