@@ -10,9 +10,9 @@ To get a local copy up and running follow these simple steps.
 - You can check if Git is installed by running the following command in the terminal.
 - `$ git --version`
 - Clone the repo from here.
-- `$ git clone https://github.com/udeaghad/metrix.git`
+- `$ git clone https://gitlab.com/udeaghad/metrix.git`
 - Make your way to the correct directory by running this command:
-- `$ cd dashboard`
+- `$ cd metrix`
 - Run `npm install` to install the dependencies in the local node_modules folder. 
 - Run `npm start` to start the app in the browser.
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

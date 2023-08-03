@@ -21,6 +21,7 @@ export const StyledResponsiveDashboard = styled('div')(({ theme }) => ({
     columnGap: 15,
     rowGap: 0,
     gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+    gap: 0,
   },
   [theme.breakpoints.up('laptop')]: {
     display: 'grid',
@@ -28,6 +29,7 @@ export const StyledResponsiveDashboard = styled('div')(({ theme }) => ({
     columnGap: 15,
     rowGap: 0,
     gridTemplateRows: '1fr 1fr 1fr 1fr 1fr',
+    gap: 0,
   }
 }));
 
