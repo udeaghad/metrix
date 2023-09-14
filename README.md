@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple steps.
 - Frameworks: React, Redux, MaterialUI.
 
 ## Figma Design
-- Click this [link]([https://www.figma.com/file/ts85mGEzMBSTAmueJ0cN55/Frontend-Application?type=design&node-id=1-2&mode=design&t=61SWnYqFKVAkhaHJ-0](https://www.figma.com/file/BmqtlYp7bGRrpFzmfF4Yko/Frontend-Engineer-Assessment?type=design&node-id=0-1&mode=design)) to view the Figma design file
+- Click this [link](https://www.figma.com/file/BmqtlYp7bGRrpFzmfF4Yko/Frontend-Engineer-Assessment?type=design&node-id=0-1&mode=design) to view the Figma design file
 
 # Authors
 ## 👤 Dozie Udeagha
